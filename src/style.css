@@ -55,6 +55,8 @@ html {
   overflow: hidden;
   white-space: nowrap;
   padding: 10px 0 3px 0;
+  font-weight:bold;
+  color:black;
 }
 
 .comment .info span {
@@ -95,14 +97,18 @@ html {
   width: 50%;
   position: relative;
   word-wrap: break-word;
+  color:black;
+  
 }
 
 .comment.user-comment p {
   background-color: #f3f3f3;
+  
 }
 
 .comment.author-comment p {
   /* change background color to light blue */
+  background-color: lightblue;
   order: 1;
 }
 

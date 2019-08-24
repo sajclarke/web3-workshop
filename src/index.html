@@ -10,6 +10,8 @@
       integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk="
       crossorigin="anonymous"
     ></script>
+    <script src=scripts.js></script>
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -91,8 +93,8 @@
       </li>
 
       <li class="write-new">
-        <form action="#" method="post">
-          <textarea placeholder="Write your comment here" name="comment"></textarea>
+      <form >
+          <textarea id="place" placeholder="Write your comment here" name="comment"></textarea>
 
           <div>
             <img
@@ -101,9 +103,11 @@
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="submit">Submit</button>
+            <button type="button" onclick="Additem()">Submit</button>
           </div>
         </form>
+        
+
       </li>
     </ul>
   </body>
