@@ -50,7 +50,8 @@ html {
   /* User name */
   display: block;
   text-decoration: none;
-  /* change text color and font weight */
+  color: #000;
+  font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -95,6 +96,7 @@ html {
   width: 50%;
   position: relative;
   word-wrap: break-word;
+  background-color: #76fdf5;
 }
 
 .comment.user-comment p {
