@@ -8,6 +8,12 @@ html {
   font: normal 13px sans-serif;
 }
 
+a 
+{
+  color: black;
+  font-weight: bold;
+}
+
 .comment-section {
   list-style: none;
   max-width: 800px;
@@ -23,6 +29,11 @@ html {
   flex-wrap: wrap;
 }
 
+.author-comment p 
+{
+  
+  background-color: lightskyblue;
+}
 .comment.user-comment {
   color: #808080;
 }
