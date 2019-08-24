@@ -50,6 +50,8 @@ html {
   /* User name */
   display: block;
   text-decoration: none;
+ font-weight: bold;
+color:#000;
   /* change text color and font weight */
   text-overflow: ellipsis;
   overflow: hidden;
@@ -102,7 +104,7 @@ html {
 }
 
 .comment.author-comment p {
-  /* change background color to light blue */
+  background-color: #B0E0E6;
   order: 1;
 }
 
