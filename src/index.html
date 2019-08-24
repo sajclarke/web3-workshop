@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Web3 Exam</title>
+	<script src="scripts.js"></script>
     <script
       src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"
       integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk="
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="scripts.js"/>
   </head>
   <body>
     <ul class="comment-section">
@@ -92,7 +92,7 @@
       </li>
 
       <li class="write-new">
-        <form action="#" method="post">
+        <form>
           <textarea placeholder="Write your comment here" name="comment"></textarea>
 
           <div>
@@ -102,7 +102,7 @@
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="submit">Submit</button>
+            <button type="button" onclick="addComment()">Submit</button>
           </div>
         </form>
       </li>
