@@ -11,6 +11,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
+	<script src="script.js">
+	</script>
   </head>
   <body>
     <ul class="comment-section">
@@ -91,7 +93,7 @@
       </li>
 
       <li class="write-new">
-        <form action="#" method="post">
+        <form>
           <textarea placeholder="Write your comment here" name="comment"></textarea>
 
           <div>
@@ -101,7 +103,7 @@
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="submit">Submit</button>
+            <button type="button" onclick="commentAdd()">Submit</button>
           </div>
         </form>
       </li>
