@@ -7,6 +7,17 @@
 html {
   font: normal 13px sans-serif;
 }
+a 
+{
+  font-weight: bold;
+  color: black;
+}
+
+a 
+{
+  color: black;
+  font-weight: bold;
+}
 
 .comment-section {
   list-style: none;
@@ -23,6 +34,11 @@ html {
   flex-wrap: wrap;
 }
 
+.author-comment p 
+{
+  
+  background-color: lightskyblue;
+}
 .comment.user-comment {
   color: #808080;
 }
@@ -30,6 +46,12 @@ html {
 .comment.author-comment {
   color: #60686d;
   justify-content: flex-end;
+  
+}
+
+.comment.author-comment p
+{
+  background-color: lightblue;
 }
 
 /* User and time info */
