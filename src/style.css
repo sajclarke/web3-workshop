@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+/*Exercise 1*/
+a
+{
+    color: black;
+    font: bold;
+}
 
 html {
   font: normal 13px sans-serif;
@@ -17,6 +23,7 @@ html {
 }
 
 .comment {
+    
   display: flex;
   border-radius: 3px;
   margin-bottom: 45px;
@@ -101,10 +108,11 @@ html {
   background-color: #f3f3f3;
 }
 
-.comment.author-comment p {
-  /* change background color to light blue */
-  order: 1;
-}
+    .comment.author-comment p {
+        /* change background color to light blue */
+        order: 1;
+        background-color: lightblue;
+    }
 
 .user-comment p:after {
   content: '';
