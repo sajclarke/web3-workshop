@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+/*Exercise 1*/
+a
+{
+    color: black;
+    font: bold;
+}
 
 html {
   font: normal 13px sans-serif;
@@ -104,6 +110,7 @@ html {
 .comment.author-comment p {
   /* change background color to light blue */
   order: 1;
+  background-color: lightblue;
 }
 
 .user-comment p:after {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,9 +11,13 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
+     <script src="scripts.js">
+     setInterval(console.log(time),10);
+
+     </script>
   </head>
   <body>
-    <ul class="comment-section">
+    <ul class="comment-section" id="thread">
       <li class="comment user-comment">
         <div class="info">
           <a href="#">Anie Silverston</a>
@@ -90,21 +94,19 @@
         </p>
       </li>
 
-      <li class="write-new">
-        <form action="#" method="post">
-          <textarea placeholder="Write your comment here" name="comment"></textarea>
+    </ul>
+    <form  class="write-new" >
+          <textarea placeholder="Write your comment here" name="comment" id="postcomment"></textarea>
 
-          <div>
+          <div >
             <img
               src="https://api.adorable.io/avatars/285/avatar_user_4.png"
               width="35"
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="submit">Submit</button>
+            <button type="button" onclick="makeComment()">Submit</button>
           </div>
         </form>
-      </li>
-    </ul>
   </body>
 </html>
