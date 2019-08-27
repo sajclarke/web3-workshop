@@ -286,8 +286,10 @@ footer a.tz:after {
   left: 80px;
 }
 
+
 @media (max-width: 1024px) {
   footer {
     display: none;
   }
 }
+

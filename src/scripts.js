@@ -1,45 +1,56 @@
 
 
+const CONTRACT_ADDRESS = '0x66Ca065A08435295A7aeC5Bc52Ca80A500B46941';
+//Code goes here
+window.addEventListener('load', async () => {
+  var contractInstance;
 
- function Additem(){
+  //Initialize smart contract
+  const initContract = async () => {
+    return new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+  };
+  // Modern dapp browsers...
+  if (window.ethereum) {
+    window.web3 = new Web3(ethereum); //from web3.min.js
 
-
-
- let li= document.createElement('li');
-li.classList.add("comment");
-li.classList.add('author-comment');
-
-var div = document.createElement('div');
-div.classList.add('info');
-
-
-var span= document.createElement('span');
-
-
-
-div.innerHTML='<a href="#">Jack Smith</a>';
-
-li.appendChild(div);
+    try {
+      // Request account access if needed
+      await ethereum.enable(); //
+      // Load smart contract
+      contractInstance = await initContract();
 
 
+      //WRITE YOUR CODE HERE
+      const assignCustomer = async () => {
 
+      const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
 
-li.innerHTML ='<a class="avatar" href="#"><img src="https://api.adorable.io/avatars/285/avatar_user_3.png" width="35" alt="Profile Avatar" title="Jack Smith"></a>'
-let para=document.createElement('p');
+        const ethAddress = await web3.eth.getAccounts();
+        console.log(ethAddress[0]);
 
-para.innerHTML = document.getElementsByTagName('textarea')[0].value;
+        const Donate = await contract.methods       
+          .send({ from: ethAddress[0] })
+          .on('transactionHash', hash => {
+            console.log(hash);
+          })
+          .on('confirmation', (confirmationNumber, receipt) => {
+            console.log(confirmationNumber, receipt);
+          })
+          .on('receipt', receipt => {
+            // receipt example
+            console.log(receipt);
+          });
 
-li.appendChild(para);
+      }
 
-var box = document.getElementsByClassName('write-new')[0];
-var ul = document.getElementsByTagName('ul')[0];
-ul.insertBefore(li,box);
-
-span.innerHTML= '10 mins ago ';
-div.appendChild(span);
- 
-}
-
-
-
+    } catch (error) {
+      // User denied account access...
+      console.log('cannot access ethereum network', error);
+    }
+  }
+  // Non-dapp browsers...
+  else {
+    console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+  }
+});
 
