@@ -22,14 +22,28 @@ window.addEventListener('load', async () => {
 
       //WRITE YOUR CODE HERE
       const assignCustomer = async () => {
+        contractInstance.methods
+      .transfer(
+        transferForm.address,
+        web3.utils.toWei(transferForm.amount, "ether")
+      )
+      .send({ from: account, gas: 1000000 })
+      .then(result => {
+        console.log(result);
 
+      });
+
+
+
+/*
       const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
 
-        const ethAddress = await web3.eth.getAccounts();
-        console.log(ethAddress[0]);
+      const ethAddress = await web3.eth.getAccounts();
+      console.log(ethAddress[0]);
 
-        const Donate = await contract.methods       
-          .send({ from: ethAddress[0] })
+        const Donate = await contractInstance.methods       
+        .transfer('0x66Ca065A08435295A7aeC5Bc52Ca80A500B46941',{from: ethAddress[0]})
+        .send({ from: ethAddress[0] })
           .on('transactionHash', hash => {
             console.log(hash);
           })
@@ -40,6 +54,8 @@ window.addEventListener('load', async () => {
             // receipt example
             console.log(receipt);
           });
+
+          */
 
       }
 
