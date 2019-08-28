@@ -1,4 +1,7 @@
 
+import React, { Component } from "react";
+// Import contract
+import {TutorialToken} from "./TutorialToken.json";
 
 const CONTRACT_ADDRESS = '0x66Ca065A08435295A7aeC5Bc52Ca80A500B46941';
 //Code goes here
@@ -10,6 +13,7 @@ window.addEventListener('load', async () => {
     return new web3.eth.Contract(abi, CONTRACT_ADDRESS);
   };
   // Modern dapp browsers...
+
   if (window.ethereum) {
     window.web3 = new Web3(ethereum); //from web3.min.js
 
@@ -21,48 +25,26 @@ window.addEventListener('load', async () => {
 
 
       //WRITE YOUR CODE HERE
-      const assignCustomer = async () => {
-        contractInstance.methods
-      .transfer(
-        transferForm.address,
-        web3.utils.toWei(transferForm.amount, "ether")
-      )
-      .send({ from: account, gas: 1000000 })
-      .then(result => {
-        console.log(result);
-
-      });
-
-
-
-/*
-      const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
-
-      const ethAddress = await web3.eth.getAccounts();
-      console.log(ethAddress[0]);
-
-        const Donate = await contractInstance.methods       
-        .transfer('0x66Ca065A08435295A7aeC5Bc52Ca80A500B46941',{from: ethAddress[0]})
-        .send({ from: ethAddress[0] })
-          .on('transactionHash', hash => {
-            console.log(hash);
-          })
-          .on('confirmation', (confirmationNumber, receipt) => {
-            console.log(confirmationNumber, receipt);
-          })
-          .on('receipt', receipt => {
-            // receipt example
-            console.log(receipt);
-          });
-
-          */
-
-      }
+     //request info from the contract
+     let tSupply= await contractInstance.methods.totalSupply().call();
+     let sabi= await contractInstance.methods.totalSupply().encodeABI();
+    let ah= await contractInstance.methods.totalSupply().estimateGas({gas: 5000000}, function(error, gasAmount){
+      if(gasAmount == 5000000)
+          console.log(ah);
+  });
+    // let balance= await contractInstance.methods.balanceOf().call();
+     console.log(tSupply);
+     console.log(sabi);
+     // console.log(balance);
+     
+     
 
     } catch (error) {
       // User denied account access...
       console.log('cannot access ethereum network', error);
     }
+  
+  
   }
   // Non-dapp browsers...
   else {
@@ -70,3 +52,27 @@ window.addEventListener('load', async () => {
   }
 });
 
+function Donate(){
+  
+  console.log('part 1');
+  
+  
+  const Donatet = async () => {
+
+   const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+    
+   
+     const ttAddress = await web3.eth.getAccounts();
+      console.log(ttAddress[0]);
+
+        const Donateb = await contract.methods       
+        // .transfer({from: ttAddress[0]})
+
+         .balanceOf(ttAddress[0])
+        
+         
+
+        };
+        Donatet();
+      }
+        
