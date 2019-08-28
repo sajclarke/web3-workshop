@@ -1,41 +1,34 @@
-function Additem(){
- let li= document.createElement('li');
-li.classList.add("comment");
-li.classList.add('author-comment');
+const CONTRACT_ADDRESS = '0x73Ab0cb05058665e128f17A740104b691CDf92F9';
+//Code goes here
+window.addEventListener('load', async () => {
+  var contractInstance;
 
-var div = document.createElement('div');
-div.classList.add('info');
+  //Initialize smart contract
+  const initContract = async () => {
+    return new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+  };
+  // Modern dapp browsers...
+  if (window.ethereum) {
+    window.web3 = new Web3(ethereum); //from web3.min.js
 
-var span= document.createElement('span');
-
-div.innerHTML='<a href="#">Jack Smith</a>';
-div.appendChild(span);
-li.appendChild(div);
-
-li.innerHTML ='<a class="avatar" href="#"><img src="https://api.adorable.io/avatars/285/avatar_user_3.png" width="35" alt="Profile Avatar" title="Jack Smith"></a>'
-let para=document.createElement('p');
-
-para.innerHTML = document.getElementsByTagName('textarea')[0].value;
-
-li.appendChild(para);
-
-var box = document.getElementsByClassName('write-new')[0];
-var ul = document.getElementsByTagName('ul')[0];
-ul.insertBefore(li,box);
+    try {
+      // Request account access if needed
+      await ethereum.enable(); //
+      // Load smart contract
+      contractInstance = await initContract();
 
 
-function datetime(){
-    start_date /=1000;
 
-    var seconds= Math.round(start_date);
 
-    var timeText;
 
-    if(seconds <60){
-        timeTt = seconds+"sec" +(seconds < 2 ? " ": "s")+"ago";
-
+      //WRITE YOUR CODE HERE
+    } catch (error) {
+      // User denied account access...
+      console.log('cannot access ethereum network', error);
     }
-    span.innerHTML= "10 minutes ago";
-}
-
-}
+  }
+  // Non-dapp browsers...
+  else {
+    console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+  }
+});
