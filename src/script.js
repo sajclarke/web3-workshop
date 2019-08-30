@@ -1,3 +1,8 @@
+
+
+
+
+
 const CONTRACT_ADDRESS = '0x73Ab0cb05058665e128f17A740104b691CDf92F9';
 //Code goes here
 window.addEventListener('load', async () => {
@@ -18,10 +23,26 @@ window.addEventListener('load', async () => {
       contractInstance = await initContract();
 
 
-
-
-
       //WRITE YOUR CODE HERE
+      const donations = async () => {
+
+ const ethAddress = await web3.eth.getAccounts();
+        console.log(ethAddress[0]);
+
+        const createCustomer = await contract.methods
+        .send({ from: ethAddress[0] })
+          .on('transactionHash', hash => {
+            console.log(hash);
+          })
+          .on('confirmation', (confirmationNumber, receipt) => {
+            console.log(confirmationNumber, receipt);
+          })
+          .on('receipt', receipt => {
+            // receipt example
+            console.log(receipt);
+          })
+
+}
     } catch (error) {
       // User denied account access...
       console.log('cannot access ethereum network', error);
@@ -31,4 +52,6 @@ window.addEventListener('load', async () => {
   else {
     console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
   }
+
+  
 });

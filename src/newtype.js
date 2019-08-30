@@ -1,5 +1,5 @@
 var currentT = new Date();
-function realtime()
+function starttime()
 {
 	var time = new Date().getTime();
 	return time;
@@ -7,7 +7,7 @@ function realtime()
 //setInterval(() => console.log(realtime()),1000);
 let timeLog = [null]; //array to hold the time at which comments were posted
 let index = -1; 
-function hoursAgo(log, now) //calculates time since particular comment was made
+function passedtime(log, now) //calculates time since particular comment was made
 {
 	var phrase;
 	var output;
@@ -41,11 +41,11 @@ function hoursAgo(log, now) //calculates time since particular comment was made
 	return output.toString()+phrase;
 }
 
-function timeUpdate() //called to update the span tag of the comments which show the time since posted
+function currenttime() //called to update the span tag of the comments which show the time since posted
 {
 	for (var x = 0; x < timeLog.length; x++)
 	{
-		document.getElementById("ID"+x).innerHTML = hoursAgo(x, realtime()); //update span tags
+		document.getElementById("ID"+x).innerHTML = passedtime(x, starttime()); //update span tags
 	}
 }
 

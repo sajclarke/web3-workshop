@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     ></script>
     <script src=script.js></script>
+    <script src=abi.js></script>
      <script src=newtype.js></script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -32,7 +33,7 @@
         </a>
 
         <p>Suspendisse gravida sem?</p>
-         <button type="button" >Donate</button>
+         <button type="button" onclick = "donations()" >Donate</button>
       </li>
 
       <li class="comment author-comment">
@@ -108,7 +109,7 @@
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="button" onclick ="Additem(); timeUpdate()">Submit</button>
+            <button type="button" onclick ="Additem(); currenttime()">Submit</button>
           </div>
         </form>
         </div>
