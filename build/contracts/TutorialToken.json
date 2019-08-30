@@ -1253,12 +1253,12 @@
         }
       },
       "links": {},
-      "address": "0x27997697698f5492531519DF71eDE7D508d60403",
-      "transactionHash": "0x6e889de334c38bd84281ec745e4c9d39475dc5598026df6806846ddc03d250a2"
+      "address": "0xc4E6d82b1Cc39dbb8E9097DBd89F4E4D9d1fdBaB",
+      "transactionHash": "0x0b2902e6df1f593ccb87897154be61c0570375d2b7b89c1e85519abb182f0d22"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-08-28T22:32:28.308Z",
+  "updatedAt": "2019-08-30T19:28:52.160Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

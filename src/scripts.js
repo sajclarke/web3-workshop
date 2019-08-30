@@ -1,4 +1,4 @@
-const CONTRACT_ADDRESS = '0x27997697698f5492531519DF71eDE7D508d60403';
+const CONTRACT_ADDRESS = '0xc4E6d82b1Cc39dbb8E9097DBd89F4E4D9d1fdBaB';
 
 //Code goes here
 window.addEventListener('load', async () => {
@@ -19,9 +19,22 @@ window.addEventListener('load', async () => {
       contractInstance = await initContract();
 
       //WRITE YOUR CODE HERE
+      const account2 = web3.eth.accounts.create();
+      console.log(account2);
+     
+      /*const accounts = await web3.eth.getAccounts();
+      console.log(accounts[0]);
+      const contrBalance = await contractInstance.methods
+      .balanceOf(accounts[0])
+      .call({ from: accounts[0] });
+      console.log("contract balance:" + contrBalance); 
 
-      var supply = await contractInstance.methods.totalSupply().call();
-      console.log(supply);
+      contractInstance.methods
+    .transfer("0x846CFC14f441D074Aa290914740Da0c46bD1d8f8",10000)
+    .send({ from: accounts[0], gas: 1000000 })
+    .then(result => {
+    console.log(result);});*/
+
     } catch (error) {
       // User denied account access...
       console.log('cannot access ethereum network', error);
@@ -36,10 +49,34 @@ window.addEventListener('load', async () => {
 //Exercise 3b
 const donate = async () =>
 {
-  const ttBalance = await contractInstance.methods
-.balanceOf(accounts[0])
-.call({ from: accounts[0] });
-console.log(ttBalance);
-  //contractInstance.methods.transfer(userAdress, value).send({from: doneeAdress}).on('transactionHash', function(hash) {console.log(hash);});
-}
+  const initContract = async () => {
+    return new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+  };
+
+  var contractInstance = await initContract();
+
+  const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);  
+  const accounts = await web3.eth.getAccounts();
   
+  const account2 = web3.eth.accounts.create();
+  console.log(account2);
+
+  var donation = 50000;
+  //console.log(account2);
+  const donBalance = await contractInstance.methods
+  .balanceOf(accounts[0])
+  .call({ from: accounts[0] });
+  console.log(donBalance);
+  if (donBalance < donation)
+  {
+    alert("You have insufficient funds to donate :(");
+  }
+  else //donate
+  {
+    contractInstance.methods
+    .transfer(accounts[0],donation)
+    .send({ from: accounts[0], gas: 1000000 })
+    .then(result => {
+    console.log(result);});
+  }
+}

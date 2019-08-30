@@ -1,6 +1,5 @@
 
-var abi = {
-    "abi": [
+var abi = [
       {
         "constant": true,
         "inputs": [],
@@ -283,4 +282,3 @@ var abi = {
         "type": "event"
       }
     ]
-}
