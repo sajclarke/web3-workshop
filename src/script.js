@@ -34,10 +34,10 @@ const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
         const Donations = await contract.methods
          .transfer('0x1e4220Bf97969aAc945E65Ef80cC16540F00Eb6a', 10000000000)
         .send({from: ttAddress[0], gas: 1000000 })
-          .then(receipt => {
+          .then(donation=> {
            // console.log(hash);
             // receipt example
-            console.log(receipt);});
+            console.log(donation);});
         };
         Donations();
     
