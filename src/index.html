@@ -10,6 +10,7 @@
       integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk="
       crossorigin="anonymous"
     ></script>
+    <script src=script.js></script>
     <link rel="stylesheet" href="style.css" />
     <script src="scripts.js"/>
   </head>
@@ -90,9 +91,10 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisee gravida sem sit amet molestie porttitor.
         </p>
       </li>
-
+       
       <li class="write-new">
-        <form action="#" method="post">
+        <div align= "center">
+    <form >
           <textarea placeholder="Write your comment here" name="comment"></textarea>
 
           <div>
@@ -102,10 +104,12 @@
               alt="Profile of Bradley Jones"
               title="Bradley Jones"
             />
-            <button type="submit">Submit</button>
+            <button type="button" onclick ="Additem()">Submit</button>
           </div>
         </form>
+        </div>
       </li>
     </ul>
+
   </body>
 </html>
