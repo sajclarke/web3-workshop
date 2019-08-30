@@ -1,9 +1,4 @@
-
-import React, { Component } from "react";
-// Import contract
-import {TutorialToken} from "./TutorialToken.json";
-
-const CONTRACT_ADDRESS = '0x66Ca065A08435295A7aeC5Bc52Ca80A500B46941';
+const CONTRACT_ADDRESS = '0x71EceFD6A2060BB16DE58C4170aabaa83faF5C39';
 //Code goes here
 window.addEventListener('load', async () => {
   var contractInstance;
@@ -25,16 +20,14 @@ window.addEventListener('load', async () => {
 
 
       //WRITE YOUR CODE HERE
+      const accounts = await web3.eth.getAccounts();
      //request info from the contract
      let tSupply= await contractInstance.methods.totalSupply().call();
-     let sabi= await contractInstance.methods.totalSupply().encodeABI();
-    let ah= await contractInstance.methods.totalSupply().estimateGas({gas: 5000000}, function(error, gasAmount){
-      if(gasAmount == 5000000)
-          console.log(ah);
-  });
-    // let balance= await contractInstance.methods.balanceOf().call();
-     console.log(tSupply);
-     console.log(sabi);
+   //  let balance= await contractInstance.methods.balanceOf('').call();
+    
+    // console.log(tSupply);
+   //  console.log(balance);
+     
      // console.log(balance);
      
      
@@ -57,21 +50,17 @@ function Donate(){
   console.log('part 1');
   
   
+ 
   const Donatet = async () => {
-
-   const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
     
-   
-     const ttAddress = await web3.eth.getAccounts();
-      console.log(ttAddress[0]);
+   const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);   
+   const ttAddress = await web3.eth.getAccounts();
 
         const Donateb = await contract.methods       
-        // .transfer({from: ttAddress[0]})
-
-         .balanceOf(ttAddress[0])
-        
-         
-
+         .transfer('0xE71e67ee8527aD768E5BE4C6Db277Fb9f83A4Ea2', 10000000000)
+         .send({ from: ttAddress[0], gas: 1000000 })
+        .then(result => {
+        console.log(result);});         
         };
         Donatet();
       }
