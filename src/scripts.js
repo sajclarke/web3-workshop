@@ -1,4 +1,4 @@
-const CONTRACT_ADDRESS = '0x71EceFD6A2060BB16DE58C4170aabaa83faF5C39';
+const CONTRACT_ADDRESS = '0x688a870Fc4f425c908479DA6364Ff702105D3fb3';
 //Code goes here
 window.addEventListener('load', async () => {
   var contractInstance;
@@ -23,7 +23,7 @@ window.addEventListener('load', async () => {
       const accounts = await web3.eth.getAccounts();
      //request info from the contract
      let tSupply= await contractInstance.methods.totalSupply().call();
-   //  let balance= await contractInstance.methods.balanceOf('').call();
+     let balance= await contractInstance.methods.balanceOf(accounts[0]).call();
     
     // console.log(tSupply);
    //  console.log(balance);
@@ -45,23 +45,20 @@ window.addEventListener('load', async () => {
   }
 });
 
-function Donate(){
-  
-  console.log('part 1');
-  
-  
- 
+function Donate(){  
   const Donatet = async () => {
     
    const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);   
    const ttAddress = await web3.eth.getAccounts();
 
         const Donateb = await contract.methods       
-         .transfer('0xE71e67ee8527aD768E5BE4C6Db277Fb9f83A4Ea2', 10000000000)
+         .transfer('0xE71e67ee8527aD768E5BE4C6Db277Fb9f83A4Ea2', web3.utils.toWei('100', "ether"))
          .send({ from: ttAddress[0], gas: 1000000 })
         .then(result => {
-        console.log(result);});         
+        console.log(result);}
+        )
         };
+        
         Donatet();
       }
         
