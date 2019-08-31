@@ -64,10 +64,17 @@ function makeComment()
 	timeLog[index] = postT.getTime();
 
 	var text = document.getElementById("postcomment").value;
-	var listItem = document.createElement("li");
-	listItem.className = "comment author-comment";
-	listItem.innerHTML = "<div class=\"info\"><a href=\"#\">Jack Smith</a><span id=\"ID"+index+"\">"+ hoursAgo(index, realtime())+"</span></div><a class=\"avatar\" href=\"#\"><img src=\"https://api.adorable.io/avatars/285/avatar_user_3.png\"width=\"35\"alt=\"Profile Avatar\"title=\"Jack Smith\"/></a><p>"+ text +" </p>"
-	document.getElementById("thread").appendChild(listItem);
+	if (text.length < 1)
+	{
+		alert("Please type something before posting a comment");
+	}
+	else
+	{
+		var listItem = document.createElement("li");
+		listItem.className = "comment author-comment";
+		listItem.innerHTML = "<div class=\"info\"><a href=\"#\">Jack Smith</a><span id=\"ID"+index+"\">"+ hoursAgo(index, realtime())+"</span></div><a class=\"avatar\" href=\"#\"><img src=\"https://api.adorable.io/avatars/285/avatar_user_3.png\"width=\"35\"alt=\"Profile Avatar\"title=\"Jack Smith\"/></a><p>"+ text +" </p><button type=\"button\" onclick=\"donate()\">Donate</button>"
+		document.getElementById("thread").appendChild(listItem);
+	}	
 }
 
 setInterval(() => timeUpdate(), 1000); //actively updates time ago comment was made

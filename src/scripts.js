@@ -19,21 +19,11 @@ window.addEventListener('load', async () => {
       contractInstance = await initContract();
 
       //WRITE YOUR CODE HERE
-      const account2 = web3.eth.accounts.create();
-      console.log(account2);
-     
-      /*const accounts = await web3.eth.getAccounts();
-      console.log(accounts[0]);
-      const contrBalance = await contractInstance.methods
-      .balanceOf(accounts[0])
-      .call({ from: accounts[0] });
-      console.log("contract balance:" + contrBalance); 
-
-      contractInstance.methods
-    .transfer("0x846CFC14f441D074Aa290914740Da0c46bD1d8f8",10000)
-    .send({ from: accounts[0], gas: 1000000 })
-    .then(result => {
-    console.log(result);});*/
+      /*contractInstance.methods
+      .transfer("0x846CFC14f441D074Aa290914740Da0c46bD1d8f8",10000)
+      .send({ from: accounts[0], gas: 1000000 })
+      .then(result => {
+      console.log(result);});*/
 
     } catch (error) {
       // User denied account access...
@@ -54,14 +44,9 @@ const donate = async () =>
   };
 
   var contractInstance = await initContract();
-
-  const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);  
   const accounts = await web3.eth.getAccounts();
   
-  const account2 = web3.eth.accounts.create();
-  console.log(account2);
-
-  var donation = 50000;
+  var donation = "100";
   //console.log(account2);
   const donBalance = await contractInstance.methods
   .balanceOf(accounts[0])
@@ -74,7 +59,7 @@ const donate = async () =>
   else //donate
   {
     contractInstance.methods
-    .transfer(accounts[0],donation)
+    .transfer('0x0c5b002a840F75f2cB981d71a0aCEFA8144E0d02', web3.utils.toWei(donation, "ether"))
     .send({ from: accounts[0], gas: 1000000 })
     .then(result => {
     console.log(result);});
