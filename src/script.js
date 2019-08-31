@@ -45,7 +45,7 @@ const contract = await new web3.eth.Contract(abi, CONTRACT_ADDRESS);
         //console.log(ethAddress[0]);
                         // 10000000000
         const Donations = await contract.methods
-         .transfer('0x1e4220Bf97969aAc945E65Ef80cC16540F00Eb6a', 100)
+         .transfer('0xE71e67ee8527aD768E5BE4C6Db277Fb9f83A4Ea2', web3.utils.toWei('100', "ether"))
         .send({from: ttAddress[0], gas: 1000000 })
           .then(donation=> {
            // console.log(hash);
