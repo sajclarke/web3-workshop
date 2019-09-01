@@ -55,6 +55,13 @@ function commentAdd() {
 	li.appendChild(div);
 	li.appendChild(a);
 	li.appendChild(p);
+	var something=document.createElement("p");
+	var b = document.createElement("button");
+	b.setAttribute("type","button");
+	b.setAttribute("onClick","donate");
+	b.innerHTML="Donate";
+	li.appendChild(b);
+	//li.appendChild(something);
 	li.classList.add("comment");
 	li.classList.add("author-comment");
 
