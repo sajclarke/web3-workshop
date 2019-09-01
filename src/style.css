@@ -8,6 +8,17 @@ html {
   font: normal 13px sans-serif;
 }
 
+button {
+  background-color: #abb2b9;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 .comment-section {
   list-style: none;
   max-width: 800px;
@@ -50,7 +61,8 @@ html {
   /* User name */
   display: block;
   text-decoration: none;
-  /* change text color and font weight */
+  color: #000;
+  font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -95,6 +107,7 @@ html {
   width: 50%;
   position: relative;
   word-wrap: break-word;
+  background-color: #76fdf5;
 }
 
 .comment.user-comment p {
